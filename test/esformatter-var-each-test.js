@@ -27,13 +27,26 @@ describe('esformatter-var-each', function () {
   describe('formatting a JS file with comma-last variables', function () {
     testUtils.format(__dirname + '/test-files/comma-last.js');
 
-    before(function debug () {
-      console.log();
-      console.log(this.output);
-    });
-
-    it.skip('converts each variable to its own `var` statement', function () {
+    it('converts each variable to its own `var` statement', function () {
       var expectedOutput = fs.readFileSync(__dirname + '/expected-files/comma-last.js', 'utf8');
+      assert.strictEqual(this.output, expectedOutput);
+    });
+  });
+
+  describe('formatting a JS file with comma-first variables', function () {
+    testUtils.format(__dirname + '/test-files/comma-first.js');
+
+    it('converts each variable to its own `var` statement', function () {
+      var expectedOutput = fs.readFileSync(__dirname + '/expected-files/comma-first.js', 'utf8');
+      assert.strictEqual(this.output, expectedOutput);
+    });
+  });
+
+  describe('formatting a JS file with indented variables', function () {
+    testUtils.format(__dirname + '/test-files/indented-vars.js');
+
+    it('converts each variable to its own `var` statement', function () {
+      var expectedOutput = fs.readFileSync(__dirname + '/expected-files/indented-vars.js', 'utf8');
       assert.strictEqual(this.output, expectedOutput);
     });
   });
