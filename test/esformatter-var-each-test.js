@@ -24,11 +24,11 @@ var testUtils = {
 
 // Start our tests
 describe('esformatter-var-each', function () {
-  describe('formatting a JS file with comma-first variables', function () {
-    testUtils.format(__dirname + '/test-files/comma-first.js');
+  describe('formatting a JS file with comma-last variables', function () {
+    testUtils.format(__dirname + '/test-files/comma-last.js');
 
     it('converts each variable to its own `var` statement', function () {
-      var expectedOutput = fs.readFileSync(__dirname + '/expected-files/comma-first.js', 'utf8');
+      var expectedOutput = fs.readFileSync(__dirname + '/expected-files/comma-last.js', 'utf8');
       assert.strictEqual(this.output, expectedOutput);
     });
   });
