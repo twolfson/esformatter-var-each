@@ -50,6 +50,24 @@ describe('esformatter-var-each', function () {
       assert.strictEqual(this.output, expectedOutput);
     });
   });
+
+  describe.only('formatting a JS file with variables in loops', function () {
+    testUtils.format(__dirname + '/test-files/basic-loops.js');
+
+    it('does nothing', function () {
+      var expectedOutput = fs.readFileSync(__dirname + '/expected-files/basic-loops.js', 'utf8');
+      assert.strictEqual(this.output, expectedOutput);
+    });
+  });
+
+  describe('formatting a JS file with semicolon-less `var\'s`', function () {
+    testUtils.format(__dirname + '/test-files/basic-semicolon-less.js');
+
+    it('does nothing', function () {
+      var expectedOutput = fs.readFileSync(__dirname + '/expected-files/basic-semicolon-less.js', 'utf8');
+      assert.strictEqual(this.output, expectedOutput);
+    });
+  });
 });
 
 // Intermediate tests
