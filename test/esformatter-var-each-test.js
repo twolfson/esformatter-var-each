@@ -93,11 +93,20 @@ describe('esformatter-var-each', function () {
 
 // Advanced tests
 describe('esformatter-var-each', function () {
-  describe.only('formatting a multi-line variables', function () {
+  describe('formatting a multi-line variables', function () {
     testUtils.format(__dirname + '/test-files/advanced-multi-line.js');
 
     it('converts each variable to its own `var` statement', function () {
       var expectedOutput = fs.readFileSync(__dirname + '/expected-files/advanced-multi-line.js', 'utf8');
+      assert.strictEqual(this.output, expectedOutput);
+    });
+  });
+
+  describe.only('formatting a multi-line variables without semicolons', function () {
+    testUtils.format(__dirname + '/test-files/advanced-multi-line-semicolon-less.js');
+
+    it('converts each variable to its own `var` statement', function () {
+      var expectedOutput = fs.readFileSync(__dirname + '/expected-files/advanced-multi-line-semicolon-less.js', 'utf8');
       assert.strictEqual(this.output, expectedOutput);
     });
   });
