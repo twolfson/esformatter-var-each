@@ -45,13 +45,17 @@ describe('esformatter-var-each', function () {
   describe('formatting a JS file with indented variables', function () {
     testUtils.format(__dirname + '/test-files/indented-vars.js');
 
-    before(function debug () {
-      console.log();
-      console.log(this.output);
-    });
-
-    it.only('converts each variable to its own `var` statement', function () {
+    it('converts each variable to its own `var` statement', function () {
       var expectedOutput = fs.readFileSync(__dirname + '/expected-files/indented-vars.js', 'utf8');
+      assert.strictEqual(this.output, expectedOutput);
+    });
+  });
+
+  describe('formatting a JS file with hoisted variables', function () {
+    testUtils.format(__dirname + '/test-files/hoisted-vars.js');
+
+    it('converts each variable to its own `var` statement', function () {
+      var expectedOutput = fs.readFileSync(__dirname + '/expected-files/hoisted-vars.js', 'utf8');
       assert.strictEqual(this.output, expectedOutput);
     });
   });
