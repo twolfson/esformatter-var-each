@@ -1,2 +1,4 @@
-var a = 'hello',
+var a = function () {
+      'wat';
+    },
     b = 'world';
