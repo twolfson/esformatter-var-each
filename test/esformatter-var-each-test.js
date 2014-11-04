@@ -29,6 +29,9 @@ describe('esformatter-var-each', function () {
 
     it('converts each variable to its own `var` statement', function () {
       var expectedOutput = fs.readFileSync(__dirname + '/expected-files/comma-last.js', 'utf8');
+      console.log();
+      console.log(this.output);
+      console.log(expectedOutput);
       assert.strictEqual(this.output, expectedOutput);
     });
   });
