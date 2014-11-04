@@ -1,8 +1,10 @@
 # esformatter-var-each [![Build status](https://travis-ci.org/twolfson/esformatter-var-each.png?branch=master)](https://travis-ci.org/twolfson/esformatter-var-each)
 
-Esformatter plugin that converts comma `var` statements into separate `var` statements
+[Esformatter][] plugin that converts comma `var` statements into separate `var` statements
 
 This was created to make obfuscated scripts more palatable. However, it should be a nice addition to your web development tasks.
+
+[Esformatter]: https://github.com/millermedeiros/esformatter
 
 **Features:**
 
@@ -27,11 +29,31 @@ esformatter.format([
 // var b = 'world';
 ```
 
-## Documentation
-_(Coming soon)_
+Alternatively, load it via `format` directly:
 
-## Examples
-_(Coming soon)_
+```js
+var esformatter = require('esformatter');
+esformatter.format([
+  'var a = \'hello\',',
+  '    b = \'world\';'
+].join('\n'), {
+  plugins: [
+    'esformatter-var-each'
+  ]
+});
+```
+
+## Documentation
+`esformatter-var-each` exposes `exports.transform` for consumption by `esformatter`.
+
+### `esformatterVarEach.transform(ast)`
+Walk [AST][] and splice in `var` statements.
+
+**Warning: This mutates nodes in place**
+
+- ast `AbstractSyntaxTree` - Abstract syntax tree provided by `esformatter`
+
+[AST]: http://en.wikipedia.org/wiki/Abstract_syntax_tree
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint via [grunt](https://github.com/gruntjs/grunt) and test via `npm test`.
