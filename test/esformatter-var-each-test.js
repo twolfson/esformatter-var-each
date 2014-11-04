@@ -72,20 +72,20 @@ describe('esformatter-var-each', function () {
 
 // Intermediate tests
 describe('esformatter-var-each', function () {
-  describe('formatting a JS file with indented variables', function () {
-    testUtils.format(__dirname + '/test-files/intermediate-indented-vars.js');
-
-    it('converts each variable to its own `var` statement', function () {
-      var expectedOutput = fs.readFileSync(__dirname + '/expected-files/intermediate-indented-vars.js', 'utf8');
-      assert.strictEqual(this.output, expectedOutput);
-    });
-  });
-
   describe('formatting a JS file with hoisted variables', function () {
     testUtils.format(__dirname + '/test-files/intermediate-hoisted-vars.js');
 
     it('converts each variable to its own `var` statement', function () {
       var expectedOutput = fs.readFileSync(__dirname + '/expected-files/intermediate-hoisted-vars.js', 'utf8');
+      assert.strictEqual(this.output, expectedOutput);
+    });
+  });
+
+  describe('formatting a JS file with indented variables', function () {
+    testUtils.format(__dirname + '/test-files/intermediate-indented-vars.js');
+
+    it('converts each variable to its own `var` statement', function () {
+      var expectedOutput = fs.readFileSync(__dirname + '/expected-files/intermediate-indented-vars.js', 'utf8');
       assert.strictEqual(this.output, expectedOutput);
     });
   });
