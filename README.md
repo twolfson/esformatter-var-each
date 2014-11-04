@@ -7,9 +7,11 @@ This was created to make obfuscated scripts more palatable. However, it should b
 ## Getting Started
 Install the module with: `npm install esformatter-var-each`
 
+Then, register it as a plugin and format your JS
+
 ```js
-var esformatter_var_each = require('esformatter-var-each');
-esformatter_var_each.awesome(); // "awesome"
+var esformatter = require('esformatter');
+
 ```
 
 ## Documentation

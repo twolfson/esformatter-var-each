@@ -2,12 +2,9 @@ var esformatter = require('esformatter');
 var esformatterVarEach = require('../');
 esformatter.register(esformatterVarEach);
 
-console.log([
-  'var a = \'hello\',',
-  '    b = \'world\''
-].join('\n'));
+var script = "var a = 'hello', b = 'world'";
 
-console.log(esformatter.format([
-  'var a = \'hello\',',
-  '    b = \'world\''
-].join('\n')));
+var str = esformatter.format(script);
+
+console.log(script);
+console.log(str);
