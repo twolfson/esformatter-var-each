@@ -4,14 +4,27 @@ Esformatter plugin that converts comma `var` statements into separate `var` stat
 
 This was created to make obfuscated scripts more palatable. However, it should be a nice addition to your web development tasks.
 
+**Features:**
+
+- Preserves last character of `var's` (e.g. `var a,\nb;` -> `var a;\nvar b;`, `var a,\nb` -> `var a\nvar b`)
+- Maintain indentation level of `var's`
+
 ## Getting Started
 Install the module with: `npm install esformatter-var-each`
 
-Then, register it as a plugin and format your JS
+Then, register it as a plugin and format your JS:
 
 ```js
 var esformatter = require('esformatter');
+var esformatterVarEach = require('esformatter-var-each');
+esformatter.register(esformatterVarEach);
 
+esformatter.format([
+  'var a = \'hello\',',
+  '    b = \'world\';'
+].join('\n'));
+// var a = 'hello';
+// var b = 'world';
 ```
 
 ## Documentation
