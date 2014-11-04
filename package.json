@@ -29,7 +29,7 @@
     "test": "mocha"
   },
   "dependencies": {
-    "rocambole-token": "~1.2.1"
+    "rocambole": "~0.3.6"
   },
   "devDependencies": {
     "esformatter": "~0.4.3",
