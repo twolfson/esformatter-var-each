@@ -8,7 +8,7 @@ This was created to make obfuscated scripts more palatable. However, it should b
 
 **Features:**
 
-- Preserves last character of `var's` (e.g. `var a,\nb;` -> `var a;\nvar b;`, `var a,\nb` -> `var a\nvar b`)
+- Preserves last character of `var's` (e.g. `var a, b;` -> `var a; var b;`)
 - Maintain indentation level of `var's`
 
 ## Getting Started
