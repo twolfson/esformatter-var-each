@@ -51,7 +51,7 @@ describe('esformatter-var-each', function () {
     });
   });
 
-  describe.only('formatting a JS file with variables in loops', function () {
+  describe('formatting a JS file with variables in loops', function () {
     testUtils.format(__dirname + '/test-files/basic-loops.js');
 
     it('does nothing', function () {
@@ -93,7 +93,7 @@ describe('esformatter-var-each', function () {
 
 // Advanced tests
 describe('esformatter-var-each', function () {
-  describe.skip('formatting a multi-line variables', function () {
+  describe.only('formatting a multi-line variables', function () {
     testUtils.format(__dirname + '/test-files/advanced-multi-line.js');
 
     it('converts each variable to its own `var` statement', function () {
