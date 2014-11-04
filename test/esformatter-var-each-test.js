@@ -107,6 +107,20 @@ describe('esformatter-var-each', function () {
       assert.strictEqual(this.output, expectedOutput);
     });
   });
+
+  describe.only('formatting a JS file with an indented object', function () {
+    testUtils.format(__dirname + '/test-files/intermediate-indented-object.js');
+
+    before(function debug () {
+      console.log();
+      console.log(this.output);
+    });
+
+    it.skip('indents the object properly', function () {
+      var expectedOutput = fs.readFileSync(__dirname + '/expected-files/intermediate-indented-object.js', 'utf8');
+      assert.strictEqual(this.output, expectedOutput);
+    });
+  });
 });
 
 // Advanced tests
