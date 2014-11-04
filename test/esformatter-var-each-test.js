@@ -68,6 +68,15 @@ describe('esformatter-var-each', function () {
       assert.strictEqual(this.output, expectedOutput);
     });
   });
+
+  describe('formatting a JS file with `let` and `const`', function () {
+    testUtils.format(__dirname + '/test-files/basic-let-const.js');
+
+    it('converts those to a `var-each` format', function () {
+      var expectedOutput = fs.readFileSync(__dirname + '/expected-files/basic-let-const.js', 'utf8');
+      assert.strictEqual(this.output, expectedOutput);
+    });
+  });
 });
 
 // Intermediate tests
