@@ -1,5 +1,5 @@
 var a = function() {
-  // oh hai
-};
+    // oh hai
+  };
 var b = 'multi\
     line string';
