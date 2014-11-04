@@ -17,10 +17,12 @@ Install the module with: `npm install esformatter-var-each`
 Then, register it as a plugin and format your JS:
 
 ```js
+// Load and register our plugin
 var esformatter = require('esformatter');
 var esformatterVarEach = require('esformatter-var-each');
 esformatter.register(esformatterVarEach);
 
+// Format our code
 esformatter.format([
   'var a = \'hello\',',
   '    b = \'world\';'
