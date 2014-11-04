@@ -89,6 +89,15 @@ describe('esformatter-var-each', function () {
       assert.strictEqual(this.output, expectedOutput);
     });
   });
+
+  describe('formatting a JS file with indented variables without semicolons', function () {
+    testUtils.format(__dirname + '/test-files/intermediate-indented-vars-semicolon-less.js');
+
+    it('converts each variable to its own `var` statement', function () {
+      var expectedOutput = fs.readFileSync(__dirname + '/expected-files/intermediate-indented-vars-semicolon-less.js', 'utf8');
+      assert.strictEqual(this.output, expectedOutput);
+    });
+  });
 });
 
 // Advanced tests
@@ -102,7 +111,7 @@ describe('esformatter-var-each', function () {
     });
   });
 
-  describe.only('formatting a multi-line variables without semicolons', function () {
+  describe('formatting a multi-line variables without semicolons', function () {
     testUtils.format(__dirname + '/test-files/advanced-multi-line-semicolon-less.js');
 
     it('converts each variable to its own `var` statement', function () {
