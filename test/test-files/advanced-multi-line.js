@@ -3,9 +3,3 @@ var a = function () {
     },
     b = 'multi\
     line string';
-
-var c = function () {
-      // moar code
-    },
-    d = 'look ma\
-    no semicolon'
