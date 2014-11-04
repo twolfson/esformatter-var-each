@@ -2,6 +2,8 @@
 
 Esformatter plugin that converts comma `var` statements into separate `var` statements
 
+This was created to make obfuscated scripts more palatable. However, it should be a nice addition to your web development tasks.
+
 ## Getting Started
 Install the module with: `npm install esformatter-var-each`
 
