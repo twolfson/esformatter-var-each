@@ -92,6 +92,11 @@ describe('esformatter-var-each', function () {
 
   describe('formatting a JS file with indented variables', function () {
     testUtils.format(__dirname + '/test-files/intermediate-indented-vars.js');
+    before(function debug () {
+      console.log();
+      console.log(this.output);
+    });
+
 
     it('converts each variable to its own `var` statement', function () {
       var expectedOutput = fs.readFileSync(__dirname + '/expected-files/intermediate-indented-vars.js', 'utf8');
