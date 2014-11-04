@@ -96,7 +96,12 @@ describe('esformatter-var-each', function () {
   describe.only('formatting a multi-line variables', function () {
     testUtils.format(__dirname + '/test-files/advanced-multi-line.js');
 
-    it('converts each variable to its own `var` statement', function () {
+    before(function debug () {
+      console.log();
+      console.log(this.output);
+    });
+
+    it.skip('converts each variable to its own `var` statement', function () {
       var expectedOutput = fs.readFileSync(__dirname + '/expected-files/advanced-multi-line.js', 'utf8');
       assert.strictEqual(this.output, expectedOutput);
     });
