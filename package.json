@@ -28,7 +28,9 @@
   "scripts": {
     "test": "mocha"
   },
-  "dependencies": {},
+  "dependencies": {
+    "rocambole-token": "~1.2.1"
+  },
   "devDependencies": {
     "esformatter": "~0.4.3",
     "grunt": "~0.4.1",
