@@ -29,7 +29,8 @@
     "test": "mocha"
   },
   "dependencies": {
-    "rocambole": "~0.3.6"
+    "rocambole": "~0.3.6",
+    "rocambole-token": "~1.2.1"
   },
   "devDependencies": {
     "chai": "~3.0.0",
