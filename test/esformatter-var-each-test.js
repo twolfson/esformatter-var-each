@@ -1,7 +1,7 @@
 // Load in dependencies
-var assert = require('assert');
 var fs = require('fs');
 var esformatter = require('esformatter');
+var expect = require('chai').expect;
 var esformatterVarEach = require('../');
 
 // Register our plugin
@@ -29,7 +29,7 @@ describe('esformatter-var-each', function () {
 
     it('converts each variable to its own `var` statement', function () {
       var expectedOutput = fs.readFileSync(__dirname + '/expected-files/basic-comma-last.js', 'utf8');
-      assert.strictEqual(this.output, expectedOutput);
+      expect(this.output).to.equal(expectedOutput);
     });
   });
 
@@ -38,7 +38,7 @@ describe('esformatter-var-each', function () {
 
     it('converts each variable to its own `var` statement', function () {
       var expectedOutput = fs.readFileSync(__dirname + '/expected-files/basic-comma-first.js', 'utf8');
-      assert.strictEqual(this.output, expectedOutput);
+      expect(this.output).to.equal(expectedOutput);
     });
   });
 
@@ -47,7 +47,7 @@ describe('esformatter-var-each', function () {
 
     it('does nothing', function () {
       var expectedOutput = fs.readFileSync(__dirname + '/expected-files/basic-var-each.js', 'utf8');
-      assert.strictEqual(this.output, expectedOutput);
+      expect(this.output).to.equal(expectedOutput);
     });
   });
 
@@ -56,7 +56,7 @@ describe('esformatter-var-each', function () {
 
     it('does nothing', function () {
       var expectedOutput = fs.readFileSync(__dirname + '/expected-files/basic-loops.js', 'utf8');
-      assert.strictEqual(this.output, expectedOutput);
+      expect(this.output).to.equal(expectedOutput);
     });
   });
 
@@ -65,7 +65,7 @@ describe('esformatter-var-each', function () {
 
     it('does nothing', function () {
       var expectedOutput = fs.readFileSync(__dirname + '/expected-files/basic-semicolon-less.js', 'utf8');
-      assert.strictEqual(this.output, expectedOutput);
+      expect(this.output).to.equal(expectedOutput);
     });
   });
 
@@ -74,7 +74,7 @@ describe('esformatter-var-each', function () {
 
     it('converts those to a `var-each` format', function () {
       var expectedOutput = fs.readFileSync(__dirname + '/expected-files/basic-let-const.js', 'utf8');
-      assert.strictEqual(this.output, expectedOutput);
+      expect(this.output).to.equal(expectedOutput);
     });
   });
 });
@@ -86,7 +86,7 @@ describe('esformatter-var-each', function () {
 
     it('converts each variable to its own `var` statement', function () {
       var expectedOutput = fs.readFileSync(__dirname + '/expected-files/intermediate-hoisted-vars.js', 'utf8');
-      assert.strictEqual(this.output, expectedOutput);
+      expect(this.output).to.equal(expectedOutput);
     });
   });
 
@@ -95,7 +95,7 @@ describe('esformatter-var-each', function () {
 
     it('converts each variable to its own `var` statement', function () {
       var expectedOutput = fs.readFileSync(__dirname + '/expected-files/intermediate-indented-vars.js', 'utf8');
-      assert.strictEqual(this.output, expectedOutput);
+      expect(this.output).to.equal(expectedOutput);
     });
   });
 
@@ -104,7 +104,7 @@ describe('esformatter-var-each', function () {
 
     it('converts each variable to its own `var` statement', function () {
       var expectedOutput = fs.readFileSync(__dirname + '/expected-files/intermediate-indented-vars-semicolon-less.js', 'utf8');
-      assert.strictEqual(this.output, expectedOutput);
+      expect(this.output).to.equal(expectedOutput);
     });
   });
 
@@ -114,7 +114,7 @@ describe('esformatter-var-each', function () {
 
     it('maintains each `var` statement as its own line', function () {
       var expectedOutput = fs.readFileSync(__dirname + '/expected-files/intermediate-indented-var-each-semicolon-less.js', 'utf8');
-      assert.strictEqual(this.output, expectedOutput);
+      expect(this.output).to.equal(expectedOutput);
     });
   });
 });
@@ -126,7 +126,7 @@ describe('esformatter-var-each', function () {
 
     it('converts each variable to its own `var` statement', function () {
       var expectedOutput = fs.readFileSync(__dirname + '/expected-files/advanced-multi-line.js', 'utf8');
-      assert.strictEqual(this.output, expectedOutput);
+      expect(this.output).to.equal(expectedOutput);
     });
   });
 
@@ -135,7 +135,7 @@ describe('esformatter-var-each', function () {
 
     it('converts each variable to its own `var` statement', function () {
       var expectedOutput = fs.readFileSync(__dirname + '/expected-files/advanced-multi-line-semicolon-less.js', 'utf8');
-      assert.strictEqual(this.output, expectedOutput);
+      expect(this.output).to.equal(expectedOutput);
     });
   });
 
@@ -144,7 +144,7 @@ describe('esformatter-var-each', function () {
 
     it('converts each variable to its own `var` statement', function () {
       var expectedOutput = fs.readFileSync(__dirname + '/expected-files/advanced-semicolon-less.js', 'utf8');
-      assert.strictEqual(this.output, expectedOutput);
+      expect(this.output).to.equal(expectedOutput);
     });
   });
 });

@@ -32,6 +32,7 @@
     "rocambole": "~0.3.6"
   },
   "devDependencies": {
+    "chai": "~3.0.0",
     "esformatter": "~0.4.3",
     "grunt": "~0.4.1",
     "grunt-contrib-jshint": "~0.6.0",
