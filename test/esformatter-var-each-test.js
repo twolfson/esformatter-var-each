@@ -113,7 +113,7 @@ describe('esformatter-var-each', function () {
     testUtils.format(__dirname + '/test-files/intermediate-indented-var-each-semicolon-less.js');
 
     it('maintains each `var` statement as its own line', function () {
-      var expectedOutput = fs.readFileSync(__dirname + '/expected-files/intermediate-indented-vars-semicolon-less.js', 'utf8');
+      var expectedOutput = fs.readFileSync(__dirname + '/expected-files/intermediate-indented-var-each-semicolon-less.js', 'utf8');
       assert.strictEqual(this.output, expectedOutput);
     });
   });
