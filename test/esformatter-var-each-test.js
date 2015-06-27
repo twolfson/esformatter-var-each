@@ -60,7 +60,7 @@ describe('esformatter-var-each', function () {
     });
   });
 
-  describe.only('formatting a JS file with semicolon-less `var\'s`', function () {
+  describe.skip('formatting a JS file with semicolon-less `var\'s`', function () {
     testUtils.format(__dirname + '/test-files/basic-semicolon-less.js');
 
     it('does nothing', function () {
