@@ -2,6 +2,7 @@
 var fs = require('fs');
 var esformatter = require('esformatter');
 var expect = require('chai').expect;
+var rocambole = require('rocambole');
 var esformatterVarEach = require('../');
 
 // Register our plugin
@@ -18,6 +19,18 @@ var testUtils = {
     after(function cleanup () {
       // Cleanup output
       delete this.output;
+    });
+  },
+  transform: function (filepath) {
+    before(function formatFn () {
+      // Format our content
+      var input = fs.readFileSync(filepath, 'utf8');
+      this.ast = rocambole.parse(input);
+      esformatter.transform(this.ast);
+    });
+    after(function cleanup () {
+      // Cleanup ast
+      delete this.ast;
     });
   }
 };
@@ -151,16 +164,37 @@ describe('esformatter-var-each', function () {
 
 // AST good neighbor tests
 describe('esformatter-var-each', function () {
+  testUtils.transform(__dirname + '/test-files/basic-comma-last.js');
+
   it('maintains a doubly linked list for all tokens in Program', function () {
+    // Start from left to right
+    var token = this.ast.startToken;
+    var lastToken;
+    while (token) {
+      expect(token).to.have.property('prev', lastToken);
+      lastToken = token;
+      token = token.next;
+    }
+    expect(lastToken).to.equal(this.ast.endToken);
 
-  });
-
-  it('has the expected start token/end token for Program', function () {
-
+    // Now walk backwards
+    token = this.ast.endToken;
+    lastToken = undefined;
+    while (token) {
+      expect(token).to.have.property('next', lastToken);
+      lastToken = token;
+      token = token.prev;
+    }
+    expect(lastToken).to.equal(this.ast.startToken);
   });
 
   it('has root set as Program for all tokens', function () {
-
+    // Start from left to right
+    var token = this.ast.startToken;
+    while (token) {
+      expect(token).to.have.property('root', this.ast);
+      token = token.next;
+    }
   });
 
   it('our BlockStatement has each of our VariableDeclarations as children', function () {
