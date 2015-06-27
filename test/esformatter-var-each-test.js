@@ -94,7 +94,7 @@ describe('esformatter-var-each', function () {
   describe('formatting a JS file with indented variables', function () {
     testUtils.format(__dirname + '/test-files/intermediate-indented-vars.js');
 
-    it.only('converts each variable to its own `var` statement', function () {
+    it('converts each variable to its own `var` statement', function () {
       var expectedOutput = fs.readFileSync(__dirname + '/expected-files/intermediate-indented-vars.js', 'utf8');
       expect(this.output).to.equal(expectedOutput);
     });
@@ -110,7 +110,7 @@ describe('esformatter-var-each', function () {
   });
 
   // https://github.com/twolfson/esformatter-var-each/issues/2
-  describe.skip('formatting a JS file with indented variables on a var each without semicolons', function () {
+  describe.only('formatting a JS file with indented variables on a var each without semicolons', function () {
     testUtils.format(__dirname + '/test-files/intermediate-indented-var-each-semicolon-less.js');
 
     it('maintains each `var` statement as its own line', function () {
