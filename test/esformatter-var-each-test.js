@@ -170,7 +170,9 @@ describe('esformatter-var-each', function () {
     // Start from left to right
     var token = this.ast.startToken;
     var lastToken;
+    var expectedTokens = [];
     while (token) {
+      expectedTokens.push(token);
       expect(token).to.have.property('prev', lastToken);
       lastToken = token;
       token = token.next;
@@ -181,11 +183,14 @@ describe('esformatter-var-each', function () {
     token = this.ast.endToken;
     lastToken = undefined;
     while (token) {
+      var expectedToken = expectedTokens.pop();
       expect(token).to.have.property('next', lastToken);
+      expect(token).to.equal(expectedToken);
       lastToken = token;
       token = token.prev;
     }
     expect(lastToken).to.equal(this.ast.startToken);
+    expect(expectedTokens).to.have.length(0);
   });
 
   it('has root set as Program for all tokens', function () {
