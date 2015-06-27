@@ -6,7 +6,7 @@ var rocambole = require('rocambole');
 var esformatterVarEach = require('../');
 
 // Register our plugin
-// esformatter.register(esformatterVarEach);
+esformatter.register(esformatterVarEach);
 
 // Define test utilities
 var testUtils = {
@@ -197,20 +197,26 @@ describe('esformatter-var-each', function () {
     }
   });
 
-  it.only('our Program has each of our VariableDeclarations as children', function () {
-    console.log(this.ast.body);
+  it('our Program has each of our VariableDeclarations as children', function () {
     expect(this.ast.body).to.have.length(2);
+    expect(this.ast.body[0]).to.have.property('type', 'VariableDeclaration');
+    expect(this.ast.body[1]).to.have.property('type', 'VariableDeclaration');
   });
 
   it('each of our VariableDeclarations has an expected prev/next property', function () {
-
+    expect(this.ast.body[0]).to.have.property('next', this.ast.body[1]);
+    expect(this.ast.body[1]).to.have.property('prev', this.ast.body[0]);
   });
 
   it('each of our VariableDeclarations has a parent property', function () {
-
+    expect(this.ast.body[0]).to.have.property('parent', this.ast);
+    expect(this.ast.body[1]).to.have.property('parent', this.ast);
   });
 
   it('each of our VariableDeclarations has a startToken and endToken property that are in the token chain', function () {
-
+    expect(this.ast.body[0]).to.have.property('startToken');
+    expect(this.ast.body[0]).to.have.property('endToken');
+    expect(this.ast.body[1]).to.have.property('startToken');
+    expect(this.ast.body[1]).to.have.property('endToken');
   });
 });
