@@ -90,6 +90,15 @@ describe('esformatter-var-each', function () {
       expect(this.output).to.equal(expectedOutput);
     });
   });
+
+  describe('formatting a JS file with a `var` at the EOF', function () {
+    testUtils.format(__dirname + '/test-files/basic-eof-var.js');
+
+    it('has no errors', function () {
+      var expectedOutput = fs.readFileSync(__dirname + '/expected-files/basic-eof-var.js', 'utf8');
+      expect(this.output).to.equal(expectedOutput);
+    });
+  });
 });
 
 // Intermediate tests
