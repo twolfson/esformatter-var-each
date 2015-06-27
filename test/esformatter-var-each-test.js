@@ -6,7 +6,7 @@ var rocambole = require('rocambole');
 var esformatterVarEach = require('../');
 
 // Register our plugin
-esformatter.register(esformatterVarEach);
+// esformatter.register(esformatterVarEach);
 
 // Define test utilities
 var testUtils = {
@@ -197,8 +197,9 @@ describe('esformatter-var-each', function () {
     }
   });
 
-  it('our BlockStatement has each of our VariableDeclarations as children', function () {
-
+  it.only('our Program has each of our VariableDeclarations as children', function () {
+    console.log(this.ast.body);
+    expect(this.ast.body).to.have.length(2);
   });
 
   it('each of our VariableDeclarations has an expected prev/next property', function () {
