@@ -24,7 +24,7 @@ var testUtils = {
 
 // Basic variable tests
 describe('esformatter-var-each', function () {
-  describe('formatting a JS file with comma-last variables', function () {
+  describe.only('formatting a JS file with comma-last variables', function () {
     testUtils.format(__dirname + '/test-files/basic-comma-last.js');
 
     it('converts each variable to its own `var` statement', function () {
