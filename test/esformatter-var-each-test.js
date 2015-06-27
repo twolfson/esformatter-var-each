@@ -148,3 +148,34 @@ describe('esformatter-var-each', function () {
     });
   });
 });
+
+// AST good neighbor tests
+describe('esformatter-var-each', function () {
+  it('maintains a doubly linked list for all tokens in Program', function () {
+
+  });
+
+  it('has the expected start token/end token for Program', function () {
+
+  });
+
+  it('has root set as Program for all tokens', function () {
+
+  });
+
+  it('our BlockStatement has each of our VariableDeclarations as children', function () {
+
+  });
+
+  it('each of our VariableDeclarations has an expected prev/next property', function () {
+
+  });
+
+  it('each of our VariableDeclarations has a parent property', function () {
+
+  });
+
+  it('each of our VariableDeclarations has a startToken and endToken property that are in the token chain', function () {
+
+  });
+});
