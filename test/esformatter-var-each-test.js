@@ -169,6 +169,33 @@ describe('esformatter-var-each', function () {
       expect(this.output).to.equal(expectedOutput);
     });
   });
+
+  describe.only('formatting a comma-last var with an EOL comment', function () {
+    testUtils.format(__dirname + '/test-files/advanced-comma-last-eol-comment.js');
+
+    it('converts each variable to its own `var` statement and preserve the comment', function () {
+      var expectedOutput = fs.readFileSync(__dirname + '/expected-files/advanced-comma-last-eol-comment.js', 'utf8');
+      expect(this.output).to.equal(expectedOutput);
+    });
+  });
+
+  describe.skip('formatting a comma-first var with an EOL comment', function () {
+    testUtils.format(__dirname + '/test-files/advanced-comma-first-eol-comment.js');
+
+    it('converts each variable to its own `var` statement and preserve the comment', function () {
+      var expectedOutput = fs.readFileSync(__dirname + '/expected-files/advanced-comma-first-eol-comment.js', 'utf8');
+      expect(this.output).to.equal(expectedOutput);
+    });
+  });
+
+  describe.skip('formatting an indented var with an EOL comment', function () {
+    testUtils.format(__dirname + '/test-files/advanced-indented-eol-comment.js');
+
+    it('converts each variable to its own `var` statement and preserves the comment and indentation', function () {
+      var expectedOutput = fs.readFileSync(__dirname + '/expected-files/advanced-indented-eol-comment.js', 'utf8');
+      expect(this.output).to.equal(expectedOutput);
+    });
+  });
 });
 
 // AST good neighbor tests
