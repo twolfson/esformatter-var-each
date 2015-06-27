@@ -37,7 +37,7 @@ var testUtils = {
 
 // Basic variable tests
 describe('esformatter-var-each', function () {
-  describe('formatting a JS file with comma-last variables', function () {
+  describe.only('formatting a JS file with comma-last variables', function () {
     testUtils.format(__dirname + '/test-files/basic-comma-last.js');
 
     it('converts each variable to its own `var` statement', function () {
@@ -170,7 +170,7 @@ describe('esformatter-var-each', function () {
     });
   });
 
-  describe.only('formatting a comma-last var with an EOL comment', function () {
+  describe('formatting a comma-last var with an EOL comment', function () {
     testUtils.format(__dirname + '/test-files/advanced-comma-last-eol-comment.js');
 
     it('converts each variable to its own `var` statement and preserve the comment', function () {
