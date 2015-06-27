@@ -27,7 +27,7 @@ describe('esformatter-var-each', function () {
   describe('formatting a JS file with comma-last variables', function () {
     testUtils.format(__dirname + '/test-files/basic-comma-last.js');
 
-    it.only('converts each variable to its own `var` statement', function () {
+    it('converts each variable to its own `var` statement', function () {
       var expectedOutput = fs.readFileSync(__dirname + '/expected-files/basic-comma-last.js', 'utf8');
       console.log(this.output);
       expect(this.output).to.equal(expectedOutput);
@@ -94,7 +94,7 @@ describe('esformatter-var-each', function () {
   describe('formatting a JS file with indented variables', function () {
     testUtils.format(__dirname + '/test-files/intermediate-indented-vars.js');
 
-    it('converts each variable to its own `var` statement', function () {
+    it.only('converts each variable to its own `var` statement', function () {
       var expectedOutput = fs.readFileSync(__dirname + '/expected-files/intermediate-indented-vars.js', 'utf8');
       expect(this.output).to.equal(expectedOutput);
     });
