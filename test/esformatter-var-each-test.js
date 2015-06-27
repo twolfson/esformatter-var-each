@@ -24,12 +24,11 @@ var testUtils = {
 
 // Basic variable tests
 describe('esformatter-var-each', function () {
-  describe.only('formatting a JS file with comma-last variables', function () {
+  describe('formatting a JS file with comma-last variables', function () {
     testUtils.format(__dirname + '/test-files/basic-comma-last.js');
 
     it('converts each variable to its own `var` statement', function () {
       var expectedOutput = fs.readFileSync(__dirname + '/expected-files/basic-comma-last.js', 'utf8');
-      console.log(this.output);
       expect(this.output).to.equal(expectedOutput);
     });
   });
@@ -61,7 +60,7 @@ describe('esformatter-var-each', function () {
     });
   });
 
-  describe('formatting a JS file with semicolon-less `var\'s`', function () {
+  describe.only('formatting a JS file with semicolon-less `var\'s`', function () {
     testUtils.format(__dirname + '/test-files/basic-semicolon-less.js');
 
     it('does nothing', function () {
