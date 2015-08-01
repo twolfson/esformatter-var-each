@@ -160,6 +160,15 @@ describe('esformatter-var-each', function () {
       expect(this.output).to.equal(expectedOutput);
     });
   });
+
+  describe('unknown-test', function () {
+    testUtils.format(__dirname + '/test-files/unknown-test.js');
+
+    it('converts each variable to its own `var` statement', function () {
+      var expectedOutput = fs.readFileSync(__dirname + '/expected-files/unknown.js', 'utf8');
+      expect(this.output).to.equal(expectedOutput);
+    });
+  });
 });
 
 // AST good neighbor tests
