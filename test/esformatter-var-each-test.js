@@ -161,7 +161,7 @@ describe('esformatter-var-each', function () {
     });
   });
 
-  describe('unknown-test', function () {
+  describe.only('unknown-test', function () {
     testUtils.format(__dirname + '/test-files/unknown-test.js');
 
     it('converts each variable to its own `var` statement', function () {

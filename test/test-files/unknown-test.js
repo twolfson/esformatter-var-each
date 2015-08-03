@@ -1,4 +1,4 @@
-switch (testing) {
-  case 'match':
-    var fails = 1337;
+switch (true) {
+  default:
+    var a = 'hello';
 }
