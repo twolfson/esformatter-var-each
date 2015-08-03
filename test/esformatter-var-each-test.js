@@ -92,7 +92,7 @@ describe('esformatter-var-each', function () {
   });
 
   // DEV: This is an edge case from https://github.com/twolfson/esformatter-var-each/issues/2
-  describe.only('formatting a JS file with a `var` in a `switch`', function () {
+  describe('formatting a JS file with a `var` in a `switch`', function () {
     testUtils.format(__dirname + '/test-files/basic-switch.js');
 
     it('encounters no errors', function () {
