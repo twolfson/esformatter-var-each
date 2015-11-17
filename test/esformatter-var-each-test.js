@@ -100,6 +100,15 @@ describe('esformatter-var-each', function () {
       expect(this.output).to.equal(expectedOutput);
     });
   });
+
+  describe('formatting a JS file with object value', function () {
+    testUtils.format(__dirname + '/test-files/basic-object.js');
+
+    it('results in properly indented output', function () {
+      var expectedOutput = fs.readFileSync(__dirname + '/expected-files/basic-object.js', 'utf8');
+      expect(this.output).to.equal(expectedOutput);
+    });
+  });
 });
 
 // Intermediate tests
