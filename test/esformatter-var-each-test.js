@@ -170,14 +170,12 @@ describe('esformatter-var-each', function () {
       expect(this.output).to.equal(expectedOutput);
     });
   });
-});
 
-describe('esformatter-var-each', function () {
-  describe.only('formatting unknown variables', function () {
-    testUtils.format(__dirname + '/test-files/unknown.js');
+  describe.only('formatting an export with a variable after it', function () {
+    testUtils.format(__dirname + '/test-files/advanced-export-variable.js');
 
     it('converts each variable to its own `var` statement', function () {
-      var expectedOutput = fs.readFileSync(__dirname + '/expected-files/unknown.js', 'utf8');
+      var expectedOutput = fs.readFileSync(__dirname + '/expected-files/advanced-export-variable.js', 'utf8');
       expect(this.output).to.equal(expectedOutput);
     });
   });
